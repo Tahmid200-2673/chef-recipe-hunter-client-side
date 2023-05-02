@@ -27,6 +27,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import { FaRegThumbsUp } from 'react-icons/fa';
 import './Chef.css'
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 
 const mystyle = {
     width:"12rem" , height:"10rem", left:"25rem"
@@ -35,7 +36,11 @@ const mystyle = {
 
 
 
+
+
 const Chef = () => {
+    const {id} = useParams();
+
   const [chefs, setChefs] = useState([]);
 
   useEffect(() => {
@@ -57,7 +62,7 @@ const Chef = () => {
                 <Card.Text>Years of experience: {chef.experience}</Card.Text>
                 <Card.Text>Number of recipes: {chef.recipes.length}</Card.Text>
                 <Card.Text><FaRegThumbsUp/>  Likes: {chef.likes}</Card.Text>
-                <Button variant="primary">View Recipes</Button>
+                <Link to={`/chefs/${chef.id}`}><Button variant="primary">View Recipes</Button></Link>
               </Card.Body>
             </Card> 
           
