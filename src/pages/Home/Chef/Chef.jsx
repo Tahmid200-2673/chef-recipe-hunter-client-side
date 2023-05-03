@@ -56,13 +56,15 @@ const Chef = () => {
         {chefs.map((chef) => (
           <Col key={chef.id}>
              <Card style={{height:"27rem"}}>
-              <Card.Img variant="top" src={chef.picture} style={mystyle}/>
+              <Card.Img variant="top" src={chef.picture} id="cardImg" style={mystyle}/>
               <Card.Body>
                 <Card.Title>{chef.name}</Card.Title>
                 <Card.Text>Years of experience: {chef.experience}</Card.Text>
                 <Card.Text>Number of recipes: {chef.recipes.length}</Card.Text>
                 <Card.Text><FaRegThumbsUp/>  Likes: {chef.likes}</Card.Text>
-                <Link to={`/chefs/${chef.id}`}><Button variant="primary">View Recipes</Button></Link>
+                <Link to={`/chefs/${chef.id}`}>
+                <Button variant="primary">View Recipes</Button>
+                </Link>
               </Card.Body>
             </Card> 
           

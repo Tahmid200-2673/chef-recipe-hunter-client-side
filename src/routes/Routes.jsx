@@ -9,6 +9,7 @@ import LoginLayout from "../layouts/LoginLayout";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       
        
         },
+        {
+          path:'*',
+          element: <ErrorPage></ErrorPage>
+        }
         
         
        ]

@@ -1,12 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container,Form } from 'react-bootstrap';
 import {  Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+import { GoogleAuthProvider, getAuth } from 'firebase/auth';
+import app from '../../../firebase/firebase.config';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+   
+    const [user, setUser] = useState(null);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+
+
+
+    const { signIn, signInWithGoogle , signInWithGithub } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     console.log('login page location', location)
@@ -15,6 +25,7 @@ const Login = () => {
 
 
     const handleLogin = event => {
+      
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
@@ -25,15 +36,40 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                setError('');
+                event.target.reset();
+                setSuccess(' Successfully SignIn');
                 navigate(from, { replace: true })
               
             })
             .catch(error => {
                 console.log(error);
+                setError(error.message);
             })
 
        
     }
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    } 
+    const handleGithubSignIn = () => {
+        signInWithGithub()
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    } 
+
 
     return (
         <Container className='w-25 mx-auto'>
@@ -57,13 +93,17 @@ const Login = () => {
             <Form.Text className="text-secondary">
                 Don't Have an Account? <Link to="/register">Register</Link>
             </Form.Text>
-            <Form.Text className="text-success">
-
+            <br /><br />
+            <Form.Text className="text-success mx-5 my-5">
+            <button onClick={handleGoogleSignIn} className="btn btn-dark" style={{width:"20rem"}}><FaGoogle /> Google</button>
             </Form.Text>
-            <Form.Text className="text-danger">
-
+            <br /><br />
+            <Form.Text className="text-danger mx-5 mt-5">
+            <button onClick={handleGithubSignIn} className="btn btn-dark" style={{width:"20rem"}}><FaGithub /> Github</button>
             </Form.Text>
         </Form>
+        <p className='text-danger'>{error}</p>
+           <p className='text-success'>{success}</p>
     </Container>
     );
 };
