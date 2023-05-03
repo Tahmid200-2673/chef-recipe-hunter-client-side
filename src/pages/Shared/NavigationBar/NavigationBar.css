@@ -1,0 +1,7 @@
+.NavLink {
+    text-decoration: none;
+  }
+  
+  .NavLink.active {
+    text-decoration: underline;
+  }

@@ -8,11 +8,13 @@ import Banner from '../pages/Shared/Banner/Banner';
 import Chef from '../pages/Home/Chef/Chef';
 import { Outlet } from 'react-router-dom';
 import Home from '../pages/Home/Home/Home';
+import NavigationBar from '../pages/Shared/NavigationBar/NavigationBar';
 
 const Main = () => {
     return (
         <div>
            <Header></Header>
+           {/* <NavigationBar></NavigationBar> */}
            <Banner></Banner>
            <Container>
                 <Row>
@@ -28,7 +30,7 @@ const Main = () => {
                     </Col>
                 </Row>
             </Container>
-           <Footer></Footer>
+           {/* <Footer></Footer> */}
         </div>
     );
 };

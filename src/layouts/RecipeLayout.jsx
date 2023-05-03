@@ -9,22 +9,21 @@ import Chef from '../pages/Home/Chef/Chef';
 import { Outlet } from 'react-router-dom';
 import Home from '../pages/Home/Home/Home';
 import Recipes from '../pages/Recipes/Recipes';
+import NavigationBar from '../pages/Shared/NavigationBar/NavigationBar';
 
 const RecipeLayout = () => {
     return (
         <div>
-           <Header></Header>
+          <NavigationBar></NavigationBar>
           
            <Container>
                 <Row>
                     
-                    <Col lg={9}>
+                    <Col lg={12}>
                      <Recipes></Recipes>
                      
                     </Col>
-                    <Col lg={3}>
-                        <Right></Right>
-                    </Col>
+                    
                 </Row>
             </Container>
            <Footer></Footer>  
