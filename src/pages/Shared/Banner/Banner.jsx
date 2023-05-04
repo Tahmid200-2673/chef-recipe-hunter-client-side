@@ -7,7 +7,7 @@ const Banner = () => {
     return (
       
 
-<Container className='mt-4'>
+<Container className='mt-5'>
     <div id="carouselExampleCaptions" className="carousel slide ">
   
   <div className="carousel-inner">
