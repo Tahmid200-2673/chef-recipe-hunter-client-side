@@ -1,5 +1,5 @@
 
-Features used in this project:
+#Features used in this project:
 
 • Home page has 
 
