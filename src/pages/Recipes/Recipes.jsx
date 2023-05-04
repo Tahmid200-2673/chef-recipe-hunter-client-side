@@ -7,6 +7,10 @@
   import { toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
   import Rating from 'react-rating';
+  import LazyLoad from 'react-lazy-load';
+  import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
   import './Recipes.css';
 
    const mystyle = {
@@ -26,7 +30,7 @@
     };
 
      useEffect(() => {
-       fetch(`http://localhost:5000/chefs/${id}`)
+       fetch(`https://b7a10-chef-recipe-hunter-server-side-tahmid200-2673.vercel.app/chefs/${id}`)
          .then(res => res.json())
          .then(data => setChef(data))
          .catch(error => console.error(error))
@@ -39,18 +43,20 @@
     const { picture, name, bio, likes, recipes, experience } = chef;
 
     return (
-        // <div>
-        //   <div className="banner mb-5">
-        //     <img src={picture} alt={name} style={mystyle}/>
-        //     <h2>{name}</h2>
-        //     <p>{bio}</p>
-        //     <p>Likes: {likes}</p>
-        //     <p>Recipes: {recipes.length}</p>
-        //     <p>Years of experience: {experience}</p>
-        //   </div>
+       
       <div>
   <div className="banner my-5">
-    <div className="banner-image" ><img src={picture} alt={name} style={mystyle}/></div>
+  
+  {/* <div className="banner-image" ><img src={picture} alt={name} style={mystyle}/></div> */}
+
+  
+<LazyLoadImage
+    alt={picture.alt}
+    effect="blur"
+    src={picture} 
+    style={mystyle}/>
+  
+   
     <div className="banner-text">
       <h2>{name}</h2>
       <p>{bio}</p>
@@ -66,12 +72,16 @@
             <Card.Body>
               <Card.Title>{recipe.name}</Card.Title>
               <ListGroup>
+                <br />
+                <h5>Ingredients:</h5>
                 {recipe.ingredients.slice(0, 5).map((ingredient, index) => (
                   <ListGroup.Item key={index}>{ingredient}</ListGroup.Item>
               
                 ))}
               </ListGroup>
           
+              <br />
+                <h5>Cooking Method:</h5>
               <Card.Text>{recipe.cookingMethod}</Card.Text>
               {/* <Card.Text>Rating: {recipe.rating}</Card.Text> */}
               <Rating

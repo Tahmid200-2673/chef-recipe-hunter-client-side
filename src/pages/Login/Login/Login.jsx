@@ -95,11 +95,11 @@ const Login = () => {
             </Form.Text>
             <br /><br />
             <Form.Text className="text-success mx-5 my-5">
-            <button onClick={handleGoogleSignIn} className="btn btn-dark" style={{width:"20rem"}}><FaGoogle /> Google</button>
+            <button onClick={handleGoogleSignIn} className="btn btn-dark" style={{width:"20rem"}}><FaGoogle /> Google Sign-in</button>
             </Form.Text>
             <br /><br />
             <Form.Text className="text-danger mx-5 mt-5">
-            <button onClick={handleGithubSignIn} className="btn btn-dark" style={{width:"20rem"}}><FaGithub /> Github</button>
+            <button onClick={handleGithubSignIn} className="btn btn-dark" style={{width:"20rem"}}><FaGithub /> Github Sign-in</button>
             </Form.Text>
         </Form>
         <p className='text-danger'>{error}</p>

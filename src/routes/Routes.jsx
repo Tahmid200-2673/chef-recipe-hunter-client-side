@@ -10,6 +10,7 @@ import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import BlogLayout from "../layouts/BlogLayout";
 
 const router = createBrowserRouter([
   
@@ -38,10 +39,7 @@ const router = createBrowserRouter([
       
        
         },
-        {
-          path:'*',
-          element: <ErrorPage></ErrorPage>
-        }
+       
         
         
        ]
@@ -70,7 +68,7 @@ const router = createBrowserRouter([
         {
           path: ':id',
           element: <Chef></Chef>,
-          loader: ({params}) => fetch(`http://localhost:5000/indicators/${params.id}`)
+          loader: ({params}) => fetch(`https://b7a10-chef-recipe-hunter-server-side-tahmid200-2673.vercel.app/indicators/${params.id}`)
          
         },
         
@@ -86,15 +84,19 @@ const router = createBrowserRouter([
           path: ':id',
           element: <PrivateRoute><Recipes></Recipes></PrivateRoute>,
           loader: ({ params }) =>
-            fetch(`http://localhost:5000/chefs/${params.id}`)
+            fetch(`https://b7a10-chef-recipe-hunter-server-side-tahmid200-2673.vercel.app/chefs/${params.id}`)
         }
       ]
     },
     {
       path: 'blog',
-      element: <Blog></Blog>,
+      element: <BlogLayout></BlogLayout>,
      
     },
+    {
+      path:'*',
+      element: <ErrorPage></ErrorPage>
+    }
       
   ]);
 
