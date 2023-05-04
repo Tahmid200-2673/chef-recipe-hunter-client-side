@@ -8,7 +8,10 @@ import { Button, Container, Nav, Navbar } from 'react-bootstrap';
  import styled from 'styled-components';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FaRegUser, FaUser, FaUserCircle } from 'react-icons/fa';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css'
 import './NavigationBar.css';
+import ReactRoundedImage from "react-rounded-image"
 
 const StyledLink = styled(NavLink)`
   text-decoration: none;
@@ -45,55 +48,28 @@ const NavigationBar = () => {
               </StyledLink>
             </Nav>
             <Nav>
-             {/* {user && <FaUserCircle style={{fontSize: "2rem"}}></FaUserCircle>}  */}
-             {/* {
-                    user ? <>
-                        <span>{user.photoURL}</span>
-                        <button onClick={handleLogOut} className="btn btn-xs">Sign out</button>
-                    </> : <Link to="/login">Login </Link>
-                }
-            */}
-              {/* {user && <div>
-                <h3>User: {user.displayName}</h3>
-                <p>Email: {user.email}</p>
-                <img src={user.photoURL} alt="" />
-            </div>
-            }  */}
-        
-        {/* {
-                    user ? <>
-                        <span className=" text-light">{user.email}</span>
-                        <Button onClick={handleLogOut} variant="secondary">Logout</Button>
-                    </> :  <Link to="/login">
-                                    <Button variant="secondary">Login</Button>
-                                </Link>
-                } */}
-
-{/* {user ? (
-                <div className="d-flex align-items-center">
-                  <FaUserCircle
-                    onClick={handleLogOut}
-                    style={{ fontSize: '2rem' }}
-                    title={user.photoURL}
-                    className="text-light me-2"
-                  />
-                 
-                </div>
-              ) : (
-                <Link to="/login">
-                  <Button variant="secondary">Login</Button>
-                </Link>
-              )} */}
+           
               
               {user ? (
   <div className="d-flex align-items-center">
-     <FaUserCircle
-      onClick={handleLogOut}
-      style={{ fontSize: '2rem' }}
-      src={user.photoURL}
-      className="text-light me-2"
-    />
-    <span className="text-light" title={user.displayName}>{user.name}</span>
+    
+    <a id="my-anchor-element">
+    
+    <ReactRoundedImage
+ 
+  image={user.photoURL}
+  roundedColor="#FFFFFF"
+  imageWidth="50"
+  imageHeight="50"
+  roundedSize="13"
+  hoverColor="#DD1144"
+/>
+    </a> 
+  <Tooltip 
+  anchorSelect="#my-anchor-element" 
+  content={user.displayName} 
+/>
+<Button onClick={handleLogOut} variant="secondary" className='mx-3'>Logout</Button>
   </div>
 ) : (
   <Link to="/login">

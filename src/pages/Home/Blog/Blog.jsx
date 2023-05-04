@@ -22,7 +22,7 @@ const Blog = () => {
 
            <div ref={ref}> <div className="card bg-primary mt-5">
        <div className="card-body">
-         <p>  <h5>1. Tell us the differences between uncontrolled and controlled components.?</h5>
+         <p>  <h5>1. Tell us the differences between uncontrolled and controlled components?</h5>
            <b>Uncontrolled components: <br /></b>
           Uncontrolled components state is managed by the browser, contrary <br /> to the application.
             They rely on browser to manage internal state, like form input elements <br /> text inputs and checkboxes.
@@ -38,7 +38,7 @@ const Blog = () => {
     <div className="card bg-primary">
        <div className="card-body">
         <p>   <h5>2. How to validate React props using PropTypes?</h5>
-          By using PropTypes to validate component props, I can catch errors and <br /> issues in the development 
+          By using PropTypes to validate react props, I can catch errors and <br /> issues in the development 
             process and verify that my components are receiving correct props .<br />
             Here's how I can validate React props using PropTypes: <br />
            i. Import PropTypes library into component file <br />
@@ -59,12 +59,12 @@ const Blog = () => {
             Here are the differences between Node.js and Express.js: <br />
             <b>Node.js: <br /></b>
             i. Node.js is a runtime environment that runs JavaScript code outside <br />  of  browser, as an instance on a server. <br />
- ii. Node.js provides built-in modules and libraries that builds server-side <br /> applications, as an instance  file system, networking, and HTTP handling. <br />
+ ii. Node.js provides built-in modules and libraries that builds server-side <br /> applications, such as file system, networking, and HTTP handling. <br />
 
 <b>Express.js: <br /></b>
 
 i. Express.js is a web framework that provides a higher-level instance for building  <br />server-side applications.
- <br /> ii. Express.js provides features and utilities that simplify the process of building web<br /> applications, as an instance routing, middleware, and HTTP handling.
+ <br /> ii. Express.js provides features and utilities that simplify the process of building web<br /> applications, such as routing, middleware, and HTTP handling.
 
  <br /> So this are the key  differences of Node.js and Express.js.</p>
                     

@@ -1,15 +1,17 @@
 
 
   import React, { useEffect, useState } from 'react';
-  import { Card, Button, ListGroup, ToastContainer, Spinner } from 'react-bootstrap';
-  import { FaHeart, FaRegStar, FaRegThumbsUp, FaStar } from 'react-icons/fa';
+  import { Card, Button, ListGroup,  Spinner } from 'react-bootstrap';
+  import { FaHeart, FaRegStar,  FaStar } from 'react-icons/fa';
   import { useParams } from 'react-router-dom';
-  import { toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+  
+  
   import Rating from 'react-rating';
   import LazyLoad from 'react-lazy-load';
   import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
   import './Recipes.css';
 
@@ -22,12 +24,16 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
       const { id } = useParams();
     const [chef, setChef] = useState(null);
 
-    const [showToaster, setShowToaster] = useState(false);
+   
+    const notify = () => toast("Added to Favorites");
 
-    const handleAddToFavorites = () => {
-      setShowToaster(true);
-      toast.success("Added to favorites!");  //set the state variable to true when the button is clicked
+    const handleClick = event => {
+      event.currentTarget.disabled = true;
+      console.log('button clicked');
+      notify();
     };
+
+    
 
      useEffect(() => {
        fetch(`https://b7a10-chef-recipe-hunter-server-side-tahmid200-2673.vercel.app/chefs/${id}`)
@@ -47,7 +53,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
       <div>
   <div className="banner my-5">
   
-  {/* <div className="banner-image" ><img src={picture} alt={name} style={mystyle}/></div> */}
+  
 
   
 <LazyLoadImage
@@ -59,10 +65,10 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
    
     <div className="banner-text">
       <h2>{name}</h2>
-      <p>{bio}</p>
-      <p>Likes: {likes}</p>
-      <p>Recipes: {recipes.length}</p>
-      <p>Years of experience: {experience}</p>
+      <p><b>Description:</b> {bio}</p>
+      <p><b>Likes:</b> {likes}</p>
+      <p><b>Recipes:</b> {recipes.length}</p>
+      <p><b>Years of experience:</b> {experience}</p>
     </div>
   </div>
      
@@ -93,12 +99,15 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
                     ></Rating>
                     <Card.Text>Rating: {recipe.rating}</Card.Text>
                     <br />
-              <Button className='mt-2' onClick={() => handleAddToFavorites()}><FaHeart/> Add to favorites</Button>
+              {/* <Button className='mt-2' onClick={notify} ><FaHeart/> Add to favorites</Button> */}
+               <Button className='mt-2' onClick={handleClick} ><FaHeart/> Add to favorites</Button>
+
+              <ToastContainer />
             
             </Card.Body>
           </Card>
         ))}
-             {showToaster && <ToastContainer />}
+           
       </div>
     
       </div>
