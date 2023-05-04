@@ -1,11 +1,3 @@
 /* .active {
     text-decoration:none;
   } */
-
-  .NavLink {
-    text-decoration: none;
-  }
-  
-  .NavLink.active {
-    text-decoration: underline;
-  }

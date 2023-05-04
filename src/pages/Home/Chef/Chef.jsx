@@ -30,7 +30,8 @@ import './Chef.css'
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 
 const mystyle = {
-    width:"12rem" , height:"10rem", left:"25rem"
+    height:"10rem"
+    
      
 };
 
@@ -51,12 +52,12 @@ const Chef = () => {
   }, []);
 
   return (
-    <div className="mt-5">
+   <div className="mt-5">
       <Row xs={1} md={2} lg={3} className="g-4">
         {chefs.map((chef) => (
           <Col key={chef.id}>
              <Card style={{height:"27rem"}}>
-              <Card.Img variant="top" src={chef.picture} id="cardImg" style={mystyle}/>
+              <Card.Img variant="top" src={chef.picture} className="cardImg" style={mystyle}/>
               <Card.Body>
                 <Card.Title>{chef.name}</Card.Title>
                 <Card.Text>Years of experience: {chef.experience}</Card.Text>
