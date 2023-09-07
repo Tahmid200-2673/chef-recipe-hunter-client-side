@@ -9,6 +9,7 @@ import Chef from '../pages/Home/Chef/Chef';
 import { Outlet } from 'react-router-dom';
 import Home from '../pages/Home/Home/Home';
 import NavigationBar from '../pages/Shared/NavigationBar/NavigationBar';
+import ReservationWidget from '../pages/Shared/ReservationWidget/ReservationWidget';
 
 const Main = () => {
     return (
@@ -23,7 +24,7 @@ const Main = () => {
                     </Col>
                     <Col lg={6}>
                      <Chef></Chef> 
-                     
+                     <ReservationWidget></ReservationWidget>
                     </Col>
                     <Col lg={3}>
                         <Right></Right>

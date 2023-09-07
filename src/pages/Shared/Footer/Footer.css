@@ -4,7 +4,8 @@
     left: 0;
     right: 0;
     height: 80px;
-    margin-top: 500px;
+   /* margin-top: 500px;  */
+     margin-top: 50px; 
     color: #fff;
     padding: 10px;
   }

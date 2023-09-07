@@ -1,0 +1,42 @@
+/* ReservationWidget.css */
+
+/* Container styles */
+.reservation-container {
+    background-color: #f8f9fa; /* Set a background color */
+    padding: 30px;
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  /* Title styles */
+  .reservation-title {
+    font-size: 28px; /* Increase font size */
+    color: #343a40; /* Choose a suitable text color */
+    margin-bottom: 20px; /* Add some spacing below the title */
+  }
+  
+  /* Form styles */
+  .reservation-form {
+    background-color: #fff; /* Set a white background for the form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Button styles */
+  .reservation-button {
+    background-color: #007bff; /* Set a primary color for the button */
+    border: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .reservation-button:hover {
+    background-color: #0056b3; /* Darker color on hover */
+  }
+  
+  /* Add additional styles as needed */
+  

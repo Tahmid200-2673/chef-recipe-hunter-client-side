@@ -72,7 +72,7 @@ const Login = () => {
 
 
     return (
-        <Container className='w-25 mx-auto'>
+        <Container className='w-25 mx-auto' style={{marginBottom: '24rem'}}>
         <h3>Please Login</h3>
         <Form onSubmit={handleLogin}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -98,7 +98,7 @@ const Login = () => {
             <button onClick={handleGoogleSignIn} className="btn btn-dark" style={{width:"20rem"}}><FaGoogle /> Google Sign-in</button>
             </Form.Text>
             <br /><br />
-            <Form.Text className="text-danger mx-5 mt-5">
+            <Form.Text className="text-danger mx-5 mt-5" >
             <button onClick={handleGithubSignIn} className="btn btn-dark" style={{width:"20rem"}}><FaGithub /> Github Sign-in</button>
             </Form.Text>
         </Form>
